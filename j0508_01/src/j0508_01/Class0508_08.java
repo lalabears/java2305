@@ -24,7 +24,7 @@ public class Class0508_08 {
 		System.out.println();
 		
 		
-	
+	   //git test
 	}
 
 }
