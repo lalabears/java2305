@@ -12,6 +12,7 @@ public class C0509_11 {
 		
 		
 		
+		// 소수점5자리를 입력받아 3자리에서 반올림해서 출력하세요 
 		
 		
 //		// 소수점 4자리에서 반올림 출력하시오 
@@ -25,6 +26,15 @@ public class C0509_11 {
 //		
 //		
 //		System.out.println(result);
+		
+		// 반올림, 올림, 버림 
+		// round ceil floor 
+
+		// % 나머지 연산자 
+		
+		
+		
+		
 
 	}
 
