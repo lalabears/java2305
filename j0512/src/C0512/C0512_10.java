@@ -15,9 +15,10 @@ public class C0512_10 {
 		
 		Arrays.sort(arr,Collections.reverseOrder()); // 내림차순
 		
-		for(int i = 0 ; i< arr.length ; i++) {
+		for(int i = 0 ; i< arr.length ; i=i+2) {
 			System.out.print(arr[i] + " ");
 		}
+		
 		System.out.println();
 		System.out.println("단순 for ");
 		
