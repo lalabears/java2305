@@ -1,0 +1,59 @@
+package C0512;
+
+import java.util.Scanner;
+
+public class C0512_09 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		String[] title = {"이름","국어","영어","수학","합계","평균"};
+		
+		int n = 2; 
+		String[] name = new String[n];
+
+		// 
+		int[][] score = new int[n][4];
+		
+		double[] avg = new double[n];
+		
+		for(int i = 0; i<score.length;i++) {
+			int total = 0 ;
+			System.out.println((i+1)+"번째 학생 : ");
+			System.out.println("이름을 입력하세요 ");
+			name[i] = scan.next(); //{"홍길동",""}
+			for(int j = 0 ;j<score[i].length-1;j++) {
+				System.out.println(title[j+1] +" 점수를 입력하세요 >> ");
+				score[i][j] = scan.nextInt();
+				total += score[i][j];
+								
+			}
+			score[i][score[i].length-1] = total;
+			avg[i] = total/3.0; 
+		}
+		
+
+		
+		for(int i = 0; i <title.length ; i++)
+		{
+			System.out.print(title[i]+"\t");
+		}
+		System.out.println();
+		for(int i = 0; i <score.length ; i++)
+		{
+			System.out.print(name[i]+"\t");
+			for(int j = 0 ; j < score[i].length ; j++) {
+				
+				System.out.print(score[i][j] +"\t" );
+				
+			}
+			System.out.println(avg[i]);
+		}
+		
+		
+		
+		
+
+	}
+
+}

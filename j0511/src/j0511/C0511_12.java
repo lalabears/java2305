@@ -11,7 +11,7 @@ public class C0511_12 {
 		
 		c = a; 
 		a = b;
-		b = a; 
+		b = c; 
 		
 
 	}
