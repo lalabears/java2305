@@ -108,32 +108,17 @@ public class C0515_09 {
 						chSub = scan.nextInt();
 						if(chSub==0)	break;	
 						switch(chSub) {
-						case 1:
-							System.out.println(" [ 국어 점수 수정 ] ");
-							System.out.println(score[i][0] +"점  입니다. ");
+						case 1:case 2:case 3:
+							System.out.println(" [ "+title[chSub]+" 점수 수정 ] ");
+							System.out.println(score[i][chSub-1] +"점  입니다. ");
 							System.out.println(" 수정할 점수를 입력하세요");
-							score[i][0] = scan.nextInt();
+							score[i][chSub-1] = scan.nextInt();
 							score[i][3] = score[i][0] +score[i][1] +score[i][2] ;
 							avg[i] = score[i][3]/3.0; 
 							break;
-						case 2:
-							System.out.println(" [ 영어 점수 수정 ] ");
-							System.out.println(score[i][1] +"점  입니다. ");
-							System.out.println(" 수정할 점수를 입력하세요");
-							score[i][1] = scan.nextInt();
-							score[i][3] = score[i][0] +score[i][1] +score[i][2] ;
-							avg[i] = score[i][3]/3.0; 
-							break;
-						case 3:
-							System.out.println(" [ 수학 점수 수정 ] ");
-							System.out.println(score[i][2] +"점  입니다. ");
-							System.out.println(" 수정할 점수를 입력하세요");
-							score[i][2] = scan.nextInt();
-							score[i][3] = score[i][0] +score[i][1] +score[i][2] ;
-							avg[i] = score[i][3]/3.0; 
-							break;
-						
-			
+						default:
+							System.out.println(" 잘못 입력하셨습니다. ");
+
 						} //switch
 
 					} //if
