@@ -24,7 +24,7 @@ public class StuMain {
 
 		loop: while (true) {
 			// 화면출력부분
-			choice = stuScreen();
+			choice = stuScreen(); // 메소드 호출
 			
 			switch (choice) {
 			case 1: // 성적입력
