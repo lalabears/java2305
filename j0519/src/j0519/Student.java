@@ -8,8 +8,14 @@ public class Student {
 		// 없으면 자바가 알아서 넣어준다. 
 	}
 	// 오버로딩
-	Student(String name){
+	Student(String n, int k, int e, int m){
 		// 매개변수가 있는 생성자 
+		name = n;
+		kor = k;
+		eng = e;
+		math = m;
+		sum();
+		average();
 		
 	}
 	
