@@ -6,6 +6,8 @@ public class Triangle extends Shape {
 	
 	Point[] p ;
 	
+
+	
 	Triangle(Point[] p){
 		this.p = p;
 	}
