@@ -12,7 +12,36 @@ public class StuProcess {
 	String name;
 	double avg;
 	
-	
+	void stuSave(List<Student> list) {
+		File f = new File("C:/savedata/student.txt");
+		FileWriter fw = null;
+		String data = "";
+		try {
+			 fw = new FileWriter(f);
+			 for(int i = 0 ; i<list.size();i++) {
+				 data +=  list.get(i).getStuNo()+","+
+						 list.get(i).getName()+","+
+						 list.get(i).getKor()+","+
+						 list.get(i).getEng()+","+
+						 list.get(i).getMath()+"\r\n"
+						 ;
+				 
+			 }
+			 fw.write(data);
+				 
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 	
 	
 	Map<String,Object> stuRead() {

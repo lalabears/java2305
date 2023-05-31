@@ -53,6 +53,8 @@ public class C0531_02 {
 				break;
 			case 9:
 				System.out.println("파일 저장하기 완료");
+				sp.stuSave(list);
+				
 				break;
 			
 			case 0:
