@@ -2,13 +2,27 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-
-
 public class StuProcess {
+
 	Scanner scan = new Scanner(System.in);
 	int stuNo,kor,eng,math,total;
 	String name, createDate, updateDate;
 	double avg;
+	
+	Student s = new Student();
+	
+	ArrayList<Student> test() {
+		ArrayList<Student> list = new ArrayList<>();
+		
+		
+		list.add(new Student(1,"홍길동"));
+		list.add(new Student(2,"이순신"));
+
+		
+		
+		
+		return list;
+	}
 	
 	void stuSave(List<Student> list) {
 		File f = new File("C:/savedata/student.txt");

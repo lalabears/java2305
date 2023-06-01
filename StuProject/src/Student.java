@@ -1,10 +1,6 @@
 
 public class Student {
 	
-
-	static String[] title = { "학번","이름", "국어", "영어", "수학", "합계", "평균","등수" };
-	static int count =1000 ; // 클래스 변수
-//	String stuNo = "2023";
 	private int stuNo;
 	private String name;
 	private int kor;
@@ -15,6 +11,24 @@ public class Student {
 	private int rank;
 	private String createDate;
 	private String updateDate;
+
+	Student() {} // 기본 생성자  
+	// 매개변수가 있는 생성자 
+	Student(int stuNo, String name, int kor, int eng, int math, String createDate){
+		this.stuNo = stuNo;
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math; 
+		this.total = kor+eng+math;
+		this.avg= this.total/3.0;
+		this.createDate = createDate;
+		this.updateDate = createDate;
+	}
+	Student(int stuNo, String name){
+		this.stuNo = stuNo;
+		this.name = name;
+	}
 	
 	public String getUpdateDate() {
 		return updateDate;
@@ -78,45 +92,6 @@ public class Student {
 	}
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
-	}
-	{  
-		++count;
-		stuNo = count;
-	}
-	
-	Student() {
-		
-	} 
-	Student(int stuNo, String name, int kor, int eng, int math){
-		this.stuNo = stuNo;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math; 
-		this.total = kor+eng+math;
-		this.avg= this.total/3.0;
-	}
-	
-	Student(int stuNo, String name, int kor, int eng, int math, String createDate){
-		this.stuNo = stuNo;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math; 
-		this.total = kor+eng+math;
-		this.avg= this.total/3.0;
-		this.createDate = createDate;
-	}
-	Student(int stuNo, String name, int kor, int eng, int math, String createDate, String updateDate){
-		this.stuNo = stuNo;
-		this.name = name;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math; 
-		this.total = kor+eng+math;
-		this.avg= this.total/3.0;
-		this.createDate = createDate;
-		this.updateDate = updateDate;
 	}
 	
 
