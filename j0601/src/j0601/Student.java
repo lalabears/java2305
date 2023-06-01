@@ -1,7 +1,8 @@
+package j0601;
 
 public class Student {
 	
-
+	
 	static String[] title = { "학번","이름", "국어", "영어", "수학", "합계", "평균","등수" };
 	static int count =1000 ; // 클래스 변수
 //	String stuNo = "2023";
@@ -122,4 +123,5 @@ public class Student {
 
 	
 	
+
 } // student
