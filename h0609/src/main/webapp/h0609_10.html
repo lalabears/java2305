@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+			img{width: 500px;}
+			.c01{width: 500px; height: 500px; border: 1px solid black;
+				overflow: hidden; margin: 0 auto;
+			}
+			img:hover{  				
+				animation: scaleImg 2s ;
+				animation-fill-mode: both;
+			
+			}
+			
+			@keyframes scaleImg{
+				from{transform: scale(1);
+				}
+				to{
+					transform: scale(1.5);
+				}
+			}
+			
+			
+			
+			.c02{ margin: 0 auto;
+			width: 100px; height: 100px; 
+				border: 1px solid black; background: blue;
+ 				animation: changeDiv 1.5s infinite alternate,changeDiv2 1.5s infinite alternate;
+			}	
+			@keyframes changeDiv{
+				from{
+					
+					transform: perspective(150px) rotateX(0deg) rotateY(0deg) ;
+				}
+				50%{
+				
+					transform: perspective(150px) rotateX(-180deg) rotateY(0deg) ;
+				}
+				to{
+					transform: perspective(150px) rotateX(-180deg) rotateY(-180deg) ;
+				}
+			}
+			@keyframes changeDiv3{
+				from{
+					
+					transform: rotate3d(0,0,0,0deg) perspective(120px);
+				}
+				50%{
+				
+					transform: rotate3d(0,0,0,180deg) perspective(120px);
+				}
+				to{
+					transform: rotate3d(0,0,0,360deg) perspective(120px);
+				}
+			}
+			@keyframes changeDiv2{
+				from{
+					background: red;
+				}
+				50%{background: lightpink;}
+				to{
+					background: hotpink;
+				}
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="c01">
+			<img src="images/ka2.jpg">
+		</div>
+		<div class="c02"></div>
+		
+	
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Form</title>
+	</head>
+	<body>
+		<form action="re.html" method="get" >
+			<label>아이디</label>
+			<input type="text" name="userId">
+			<input type="hidden" name="ip" value="192.168.0.38">
+			<br>
+			<label>비밀번호</label>
+			<input type="password" name="userPwd">
+			<br>
+			<label>성별</label><br>
+			<input type="radio" name="gender" id="male">
+			<label for="male">남자</label>
+			<input type="radio" name="gender" id="female">
+			<label for="female">여자</label>
+			<input type="radio" name="gender" id="neuter">
+			<label for="neuter">중성</label>
+			<br>	
+			<label>취미</label><br>
+			<input type="checkbox" name="hobby" id="game" value="game">
+			<label for="game">game</label>
+			<input type="checkbox" name="hobby" id="golf" value="golf">
+			<label for="golf">golf</label>
+			<input type="checkbox" name="hobby" id="book" value="book">
+			<label for="book">book</label>
+			<input type="checkbox" name="hobby" id="listen" value="listen">
+			<label for="listen">listen</label>
+			<input type="checkbox" name="hobby" id="run" value="run">
+			<label for="run">run</label>
+			
+			<br>
+			<label>날짜</label><br>
+			<input type="date" name="date">
+			<br>
+			<label>시간</label><br>
+			<input type="time" name="time">
+			<br>
+			
+			<label>전공</label><br>
+			<select name="major">
+				<option value="archi">건축공학과</option>
+				<option value="mechanic">기계공학과</option>
+				<option value="indust">산업공학과</option>
+			</select>
+			<br>
+
+			<textarea rows="8" cols="40"></textarea>			
+			
+			
+			<br>
+			<input type="submit" value="전송">
+			<button type="button">전송</button>
+			<input type="reset" value="초기화">
+		</form>
+	
+	</body>
+</html>
