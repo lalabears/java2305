@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+ 
+			$(function(){
+				$("#chBtn").click(function(){
+
+					console.log("갯수: "+$("input[name='hobby']:checked").length);
+					console.log($("input[name='hobby']:checked").eq(0).val());
+					
+					for(var i = 0 ; i < $("input[name='hobby']:checked").length; i++){
+						console.log("for문 사용"+ $("input[name='hobby']:checked").eq(i).val());
+						
+					}
+					$("input[name='hobby']:checked").each(function(){
+						console.log(	"each 문 사용"+ $(this).val());
+																
+								
+					});				
+					
+					
+					
+					
+				}); //btn
+				
+			});// jquery
+			function arrBtn(){
+				
+				var arrNames = ["홍길동","유관순","이순신","강감찬","김구"];
+				arrNames.forEach(function(i){
+					console.log(i);
+				});
+				
+				//
+				// for i in arrNames:
+    			//	  print(arrName)
+    
+			}
+		</script>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			form,h2,table{width: 500px; margin: 30px auto;text-align: center;}
+			table,th,td{border: 1px solid black; border-collapse: collapse;}
+			th{height: 40px; background: #efefef;}	
+			td{width: 150px; height: 35px;}
+		
+		</style>
+	
+	</head>
+	<body>
+		<button type="button" onclick="arrBtn()" >버튼</button>
+	
+		<form action="" name="frm" method="get">
+			<h2>취미</h2><br>
+			<input type="checkbox" id="game" name="hobby" value="game"><label for="game">game</label>
+			<input type="checkbox" id="golf" name="hobby" value="golf"><label for="golf">golf</label>
+			<input type="checkbox" id="swim" name="hobby" value="swim" ><label for="swim">swim</label>
+			<input type="checkbox" id="run" name="hobby" value="run" ><label for="run">run</label>
+			<input type="checkbox" id="book" name="hobby" value="book" ><label for="book">book</label>
+			
+			<br>
+			
+			<br>
+			<button type="button" id="chBtn">등록</button>
+		
+		</form>
+		<br>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,167 @@
+<html>
+<head>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+#layer {
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 10000; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5);
+} 
+
+.box{
+    position: relative;
+    top:50%;
+    left:50%; 
+    width:550px;
+    transform:translate(-50%, -50%);
+    z-index:1002;
+    box-sizing:border-box;
+    background:#fff;
+    box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+}
+.box .contents {
+    padding:50px;
+    line-height:1.4rem;
+    font-size:14px;
+    word-break: break-word;
+}
+.box .contents h2 {
+    padding:15px 0;
+    color:#333;
+    margin:0;
+    text-align:center
+}
+.box .contents p{ 
+    border-top: 1px solid #666;
+    padding-top: 30px;
+}
+
+.box .button {
+    display:table;
+    table-layout: fixed;
+    width:100%;
+    height:70px;
+    background:#5d5d5d;
+    word-break: break-word;
+}
+.box .button a {
+    position: relative; 
+    display: table-cell; 
+    height:70px; 
+    color:#fff; 
+    font-size:17px;
+    text-align:center;
+    vertical-align:middle;
+    text-decoration:none; 
+    background:#2A0066;
+}
+.box .button a:before{
+    content:'';
+    display:block;
+    position:absolute;
+    top:26px;
+    right:29px;
+    width:1px;
+    height:21px;
+    background:#fff;
+    -moz-transform: rotate(-45deg); 
+    -webkit-transform: rotate(-45deg); 
+    -ms-transform: rotate(-45deg); 
+    -o-transform: rotate(-45deg); 
+    transform: rotate(-45deg);
+}
+.box .button a:after{
+    content:'';
+    display:block;
+    position:absolute;
+    top:26px;
+    right:29px;
+    width:1px;
+    height:21px;
+    background:#fff;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg); 
+    transform: rotate(45deg);
+}
+.box .button a.closeBtn {
+    background:#747474;
+}
+.box .button a.closeBtn:before, .box .button a.closeBtn:after{
+    display:none;
+}
+
+.popup_overlay{
+    position:fixed;
+    top:0px;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.5);
+}   
+</style>
+<script>
+    // 쿠키 생성함수
+    function setPopupCookie( name, value, expiredays ) {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays ); 
+        document.cookie = name + "=" + value + "; path=/; expires=" + todayDate.toUTCString() + ";"
+    } 
+
+    function closeTodayBtn() { 
+        setPopupCookie( "cookieToday", "close" , 1  ); 
+        $("#layer").css("display", "none");
+        document.getElementById("layer").style.display = "none";
+    }
+
+    function closePopup() { 
+        document.getElementById("layer").style.display = "none";
+    }
+
+    $(function(){
+        $(".box").draggable({containment:'parent', scroll:false}); // 팝업 창 드래그 가능하게
+
+        if(document.cookie.indexOf("cookieToday=close") < 0 ){      // 쿠키가 저장되어있는가
+            document.getElementById("layer").style.display = "block";
+            }else {
+            document.getElementById("layer").style.display = "none"; 
+            }
+        }
+    );    
+</script>
+</head>
+
+<body>
+
+<div id="layer">
+  <div class="box">
+      <div class="contents">
+          <h2>[ 제목입니다제목입니다 ]</h2>
+		  <p />
+<pre>
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+내용입니다. 내용입니다. 내용입니다. 내용입니다. 
+</pre>
+<font color="red" style="font-size:13pt">* 빨갛게 하고 싶은것 있으면 이런식으루</font>
+      </div>
+      <div class="button">
+          <a id="chk_today" href="javascript:closeTodayBtn();" class="closeBtn">오늘은 그만보기</a> 
+          <a href="javascript:closePopup();">창닫기</a>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>

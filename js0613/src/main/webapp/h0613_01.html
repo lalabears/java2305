@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>게시판</title>
+		<style type="text/css">
+			table{width: 1020px; margin: 0 auto;}
+			table,th,td{border: 1px solid black; border-collapse: collapse;}
+			th{height: 60px; text-align: center; background: #efefef; font-size: 19px; }
+			td{height: 50px; text-align: center;}
+			h2{width: 1020px; text-align: center; margin-bottom: 50px;}
+			div{width: 150px; height: 60px; margin: 20px auto;}
+			button{margin: 20px auto; width: 150px; height: 60px;}
+		</style>
+	</head>
+	<body>
+		
+		<h2>학생성적 프로그램</h2>
+		<table>
+			<colgroup>
+				<col width="20%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				<col width="20%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>이름</th>
+					<th>국어</th>
+					<th>영어</th>
+					<th>수학</th>
+					<th>합계</th>
+					<th>평균</th>
+				</tr>
+			</thead>
+			<!--  여기 위치점에 10개를 넣으면된다.   -->
+			<tbody id="tbody">
+				<tr>
+					<td>홍길동</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>300</td>
+					<td>100.00</td>
+				</tr>		
+			</tbody>
+		</table>
+		<div>
+			<button onclick="stuScore()">성적입력</button>
+		</div>
+		<script src="js/js0613_02.js" type="text/javascript"></script>
+	</body>
+</html>

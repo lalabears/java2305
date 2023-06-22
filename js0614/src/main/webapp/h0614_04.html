@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			$(function(){
+				$("#dbtn").click(function(){
+					// alert();
+					// $("#t01").text("삭제가능");
+					$("#t01").html("<td style='color:red;'>삭제가능</td>");
+				}); // dbtn
+				
+				
+				$("#writeBtn").click(function(){
+					
+					// document.getElementById("no").value;
+				 	let no = $("#no").val();
+				 	
+				 	if(no == null || no ==""){
+				 		alert("글을 입력하셔야 등록이 가능합니다");
+				 		$("#no").focus();
+				 		return false;
+				 	}
+				 	
+				 	
+				 	
+				 	
+				 	let title = $("#title").val();
+				 	let user = $("#user").val();
+				 	
+				 	console.log(no,title,user);
+				 	
+				 	let htmlData='';
+				 	htmlData += '<tr><td>'+ no +'</td>';
+				 	htmlData += '<td>'+title+'</td>';
+				 	htmlData += '<td>'+user+'</td>';
+				 	htmlData += '<td>2023-06-14</td>';
+				 	htmlData += '<td>삭제</td></tr>';
+				 	
+				 	$("#tbody").append(htmlData);
+				}); // writebtn
+				
+				
+				
+			});// jquery
+		</script>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			table{width: 1000px; margin: 30px auto;text-align: center;}
+			table,th,td{border: 1px solid black; border-collapse: collapse;}
+			th{height: 40px; background: #efefef;}	
+			td{width: 200px; height: 35px;}
+		
+		</style>
+	
+	</head>
+	<body>
+	
+		<h2>글쓰기</h2>
+		<form action="" name="frm" method="get">
+			<label>번호</label>
+			<input type="text" id="no" name="no">
+			<br>
+			<label>제목</label>
+			<input type="text" id="title" name="title">
+			<br>
+			<label>작성자</label>
+			<input type="text" id="user" name="user">
+			<br>
+			<button type="button" id="writeBtn">글등록</button>
+		
+		</form>
+		<br>
+		<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>날짜</th>
+					<th>삭제여부</th>
+				</tr>
+			</thead>	
+			<tbody id="tbody">
+				<tr>
+					<td id="t01">1</td>
+					<td>게시글입니다.</td>
+					<td>홍길동</td>
+					<td>2023-06-14</td>
+					<td id="dbtn">삭제</td>
+				</tr>
+		
+			</tbody>
+		
+		
+		
+		</table>
+		
+		
+	</body>
+</html>

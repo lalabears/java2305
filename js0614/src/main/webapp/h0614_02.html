@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			$(function(){
+				let count=0;
+				$("#btn").click(function(){
+					count++;
+					if(count>3) count=1;
+					$("#i01").attr("src","images/min"+count+".jpg");
+					
+					
+				}); // btn
+				
+				
+				
+			});// jquery
+		</script>
+		<style type="text/css">
+			div{width: 300px; height: 300px; overflow: hidden;
+			}
+			img{width: 350px;}		
+		
+		</style>
+	</head>
+	<body>
+		<div id="d01">
+			<img id="i01" src="images/min1.jpg">
+		</div>
+		<button id="btn">img change</button>
+		
+	</body>
+</html>

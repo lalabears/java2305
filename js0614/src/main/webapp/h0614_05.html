@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			let temp = 0; 
+			let count = 1; 
+			$(function(){
+				
+				$("#math").on("keyup",function(key){
+			        if(key.keyCode==13) {
+			            alert("엔터키 이벤트");
+			            let no = $("#no").val();
+					 	let name = $("#name").val();
+					 	let kor = $("#kor").val();
+					 	let eng = $("#eng").val();
+					 	let math = $("#math").val();
+					 	let total = Number(kor)+Number(eng)+Number(math);
+					 	let avg = (total/3.0).toFixed(2);
+					 	
+					 	let htmlData='';
+					 	htmlData += '<tr><td>'+ no +'</td>';
+					 	htmlData += '<td>'+name+'</td>';
+					 	htmlData += '<td>'+kor+'</td>';
+					 	htmlData += '<td>'+eng+'</td>';
+					 	htmlData += '<td>'+math+'</td>';
+					 	htmlData += '<td>'+total+'</td>';
+					 	htmlData += '<td>'+ avg +'</td></tr>';
+					 	
+					 	$("#tbody").html(htmlData);
+					 	$("#no").val("");
+					 	$("#name").val("");
+					 	$("#kor").val("");
+					 	$("#eng").val("");
+					 	$("#math").val("");
+					 	
+					 	
+			        }
+			    });
+				
+				
+				/* $("table tr").click(function(){
+					var tr = $(this);
+					var td = tr = tr.children();
+					// console.log(td.eq(0).text());
+					// console.log(td.eq(1).html());
+					// console.log(tr.remove());
+					
+				}); */
+				
+				$("#writeBtn").click(function(){
+					// alert(temp);
+				 	let no = count;
+				 	let name = $("#name").val();
+				 	let kor = $("#kor").val();
+				 	let eng = $("#eng").val();
+				 	let math = $("#math").val();
+				 	let total = Number(kor)+Number(eng)+Number(math);
+				 	let avg = (total/3.0).toFixed(2);
+				 	
+				 	let htmlData='';
+					if(temp == 0) {
+						htmlData += '<tr id = "'+ no +'" ><td>'+ no +'</td>';
+					 	htmlData += '<td>'+name+'</td>';
+					 	htmlData += '<td>'+kor+'</td>';
+					 	htmlData += '<td>'+eng+'</td>';
+					 	htmlData += '<td>'+math+'</td>';
+					 	htmlData += '<td>'+total+'</td>';
+					 	htmlData += '<td>'+avg+'</td>';
+					 	htmlData += '<td>'+'<button onclick="modiBtn('+ no +')">수정</button>&nbsp;<button onclick="deleteBtn('+ no +')">삭제</button>'+'</td></tr>';
+						count++;
+					 	$("#tbody").append(htmlData);
+				 	}else if(temp == 1){
+						no = $("#no").val();
+				 		htmlData += '<td>'+ no +'</td>';
+					 	htmlData += '<td>'+name+'</td>';
+					 	htmlData += '<td>'+kor+'</td>';
+					 	htmlData += '<td>'+eng+'</td>';
+					 	htmlData += '<td>'+math+'</td>';
+					 	htmlData += '<td>'+total+'</td>';
+					 	htmlData += '<td>'+avg+'</td>';
+					 	htmlData += '<td>'+'<button onclick="modiBtn('+ no +')">수정</button>&nbsp;<button onclick="deleteBtn('+ no +')">삭제</button>'+'</td>';
+					 	$("#"+no).html(htmlData);
+	
+				 	}
+				 	
+				 	
+				 	$("#no").val("");
+				 	$("#name").val("");
+				 	$("#kor").val("");
+				 	$("#eng").val("");
+				 	$("#math").val("");
+				 	
+				 	temp = 0;
+				 	
+				 	
+				 	
+				}); // writebtn
+			});// jquery
+			
+			function deleteBtn(num){
+				$("#"+num).remove();
+			}
+			function modiBtn(num){
+				temp = 1;
+				alert("수정버튼을 클릭하셨습니다.");
+
+				
+				let td = $("#"+num).children();
+				let no = td.eq(0).text();
+			 	let name = td.eq(1).text();
+			 	let kor = td.eq(2).text();
+			 	let eng = td.eq(3).text();
+			 	let math = td.eq(4).text();
+			 	
+			 	
+			 	console.log(name);
+				
+			 	$("#no").val(no);
+			 	$("#name").val(name);
+			 	$("#kor").val(kor);
+			 	$("#eng").val(eng);
+			 	$("#math").val(math);
+								
+			}
+			
+			
+		</script>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			form,h2,table{width: 1200px; margin: 30px auto;text-align: center;}
+			table,th,td{border: 1px solid black; border-collapse: collapse;}
+			th{height: 40px; background: #efefef;}	
+			td{width: 150px; height: 35px;}
+		
+		</style>
+	
+	</head>
+	<body>
+	
+		<h2>학생성적 등록</h2>
+		<form action="" name="frm" method="get">
+			<!-- <label>번호</label> -->
+			<input type="hidden" id="no" name="no">
+			<br>
+			<label>이름</label>
+			<input type="text" id="name" name="name">
+			<br>
+			<label>국어</label>
+			<input type="text" id="kor" name="kor">
+			<br>
+			<label>영어</label>
+			<input type="text" id="eng" name="eng">
+			<br>
+			<label>수학</label>
+			<input type="text" id="math" name="math">
+			<br>
+			
+			<br>
+			<button type="button" id="writeBtn">학생 성적 등록</button>
+		
+		</form>
+		<br>
+		<h2>학생성적 관리 시스템</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>이름</th>
+					<th>국어</th>
+					<th>영어</th>
+					<th>수학</th>
+					<th>합계</th>
+					<th>평균</th>
+					<th>삭제여부</th>
+				</tr>
+			</thead>	
+			<tbody id="tbody">
+				<!-- <tr id="1">
+					<td>1</td>
+					<td>홍길동</td>
+					<td>100</td>
+					<td>100</td>
+					<td>100</td>
+					<td>300</td>
+					<td>100.00</td>
+					<td>
+						<button onclick="modiBtn(1)">수정</button>&nbsp;<button onclick="deleteBtn(1)">삭제</button>
+					</td>
+				</tr> -->
+		
+			</tbody>
+		
+		
+		
+		</table>
+		
+		
+	</body>
+</html>

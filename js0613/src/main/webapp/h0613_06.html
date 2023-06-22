@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Date</title>
+		<style>
+			*{padding: 0; margin: 0;}
+			h2{width: 800px; font-size: 30px; text-align: center; margin: 20px auto;}	
+			div{width: 800px; text-align: center; margin: 0 auto;}	
+		</style>
+		
+		<script type="text/javascript">
+			
+			var today = new Date();
+			var lastDay = new Date(2023,11,31);
+			function add(){
+				
+				var nowMonth = today.getMonth()+1;
+				var nowDate = today.getDate();
+				var nowDay = today.getDay();
+				
+				var week=["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+				
+				console.log(nowMonth);
+				console.log(nowDate);
+				console.log(week[nowDay]);
+				
+				document.getElementById("h01").innerText = nowMonth+"월 "+nowDate+"일 "+week[nowDay]; 
+			}
+			
+			function dDay(){
+				
+				
+				var dDayTime = lastDay.getTime() - today.getTime();
+				var dDay = dDayTime/(1000*60*60*24);
+				document.getElementById("h02").innerText = Math.ceil(dDay) + " 일 남았습니다."; 
+				
+			}
+			
+		
+		
+		
+		</script>
+	
+	</head>
+	<body>
+		<h2>[ 2023년까지 남은 일수 ]</h2>
+		<h2 id="h02"></h2>
+		<div>
+			<button type="button" onclick="dDay()">일수계산</button>
+		</div>
+		
+		<h2>[ 현재날짜 ]</h2>
+		<h2 id="h01"> 00월 00일 0요일</h2>
+		
+		<div>
+			<button type="button" onclick="add()">현재날짜 생성</button>
+		</div>
+	</body>
+</html>

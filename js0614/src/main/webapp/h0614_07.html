@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<style type="text/css">
+			*{padding: 0; margin: 0;}
+			div{width: 200px;height: 200px;border: 1px solid black;}
+			.on{background: lightyellow;}
+			.off{background: palegreen;}
+			.st{border-radius: 20%;}
+		</style>
+
+		<script>
+ 
+			$(function(){
+			});// jquery
+			
+			function btn(){
+				$("div").toggleClass("off");
+			}
+			function btn1(){
+				$("div").addClass("off");
+				$("div").removeClass("on");
+			}
+			function btn2(){
+				$("div").addClass("on");
+				$("div").removeClass("off");
+			}
+		</script>
+	
+	</head>
+	<body>
+		<div class="st on"></div>
+		<button onclick="btn()" >토글</button>
+		<button onclick="btn1()" >클래스 추가</button>
+		<button onclick="btn2()" >클래스 삭제</button>
+	</body>
+</html>
